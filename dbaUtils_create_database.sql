@@ -1,0 +1,18 @@
+
+USE [master] ;
+GO
+
+IF 		( SELECT @@VERSION ) NOT LIKE '%2016%'
+	AND	( SELECT @@VERSION ) NOT LIKE '%2017%'
+	AND	( SELECT @@VERSION ) NOT LIKE '%2019%'
+BEGIN
+	IF EXISTS ( SELECT * FROM sys.databases WHERE [name] = N'dbaUtils')
+		DROP DATABASE [dbaUtils] ;
+END
+ELSE
+BEGIN
+	DROP DATABASE IF EXISTS [dbaUtils] ;
+END
+CREATE DATABASE [dbaUtils] ;
+GO
+
