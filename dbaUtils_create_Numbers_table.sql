@@ -2,6 +2,8 @@
 USE [dbaUtils] ;
 GO
 
+DECLARE @max_number AS SMALLINT = 10000 ;
+
 IF
 (
 		( SELECT @@VERSION ) NOT LIKE '%2016%'
@@ -16,16 +18,12 @@ ELSE
 BEGIN
 	DROP TABLE IF EXISTS dbo.Numbers ;
 END
-GO
 
 CREATE TABLE dbo.Numbers
 (
 	[number] 		SMALLINT		NOT NULL
 		CONSTRAINT 	[PK_Numbers] 	PRIMARY KEY CLUSTERED
 ) ;
-GO
-
-DECLARE @max_number AS SMALLINT = 10000 ;
 
 WITH cte_Numbers AS
 (
