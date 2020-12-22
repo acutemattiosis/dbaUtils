@@ -1,5 +1,5 @@
 
-USE [dbaUtils_v2] ;
+USE [dbaUtils] ;
 GO
 
 -- enter start date -- format YYYYMMDD
